@@ -13,15 +13,15 @@ on:
 jobs:
   maven:
     name: Units & Integrations
-    #runs-on: ubuntu-latest
-    runs-on: ${{ matrix.os.name }}
-    strategy:
-      matrix:
+    runs-on: ubuntu-latest
+    #runs-on: ${{ matrix.os.name }}
+    #strategy:
+      #matrix:
         # syntax inspired from https://github.community/t5/GitHub-Actions/Using-a-matrix-defined-input-for-a-custom-action/m-p/32032/highlight/true#M988
-        os:
-          - {name: macos-latest, short: "macos" }
-          - {name: ubuntu-latest, short: "ubuntu" }
-          - {name: windows-latest, short: "windows" }
+        #os:
+          #- {name: macos-latest, short: "macos" }
+          #- {name: ubuntu-latest, short: "ubuntu" }
+          #- {name: windows-latest, short: "windows" }
 
     steps:
      - name: Checkout repo
@@ -53,10 +53,10 @@ jobs:
      - name: Package
        run: mvn clean package -Dmaven.test.skip=true -s ./settings.xml
   
-     - name: Show Error Logs
-       if: failure()
-       run: |
-          cat hs_err_pid*
-          rm hs_err_pid*
+     #- name: Show Error Logs
+       #if: failure()
+       #run: |
+          #cat hs_err_pid*
+          #rm hs_err_pid*
 
   
