@@ -43,16 +43,28 @@ jobs:
      - name: Compile with Maven
        run: mvn compile
 
-     - name: Verify
-       run: mvn verify
-
      - name: Testing
        run: mvn test
        # - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=hbstarjason_springboot-k8s-example
      
      - name: Package
-       run: mvn clean package -Dmaven.test.skip=true -s ./settings.xml
-  
+       #run: mvn clean package -Dmaven.test.skip=true -s ./settings.xml
+       #run: mvn clean package -Dmaven.test.skip=true 
+       run: mvn -B clean package -DskipTests
+
+     - name: Verify
+       run: mvn -B clean verify -Pintegration-test
+       #mvn clean verify -P sonar -Dsonar.login=XXXX
+
+     - name: Creating artifact
+       run: mkdir staging && cp target/*.jar staging
+
+     - name: Upload Artifact
+       uses: actions/upload-artifact@v1
+       with:
+          name: GitHub_Actions-sta
+          path: staging
+
      #- name: Show Error Logs
        #if: failure()
        #run: |
