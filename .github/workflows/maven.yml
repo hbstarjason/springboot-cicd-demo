@@ -68,6 +68,9 @@ jobs:
           #name: project-jar-${{matrix.os.short}}-${{github.sha}}
           path: staging
 
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag springboot-cicd-demo:$(date +%s)
+      
      #- name: Show Error Logs
        #if: failure()
        #run: |
