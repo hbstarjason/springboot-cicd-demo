@@ -6,7 +6,7 @@
 
 
 
-    <localRepository>/root/.m2</localRepository>
+    <localRepository>~/.m2</localRepository>
 
     <mirrors>
          <mirror>
