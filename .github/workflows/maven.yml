@@ -2,6 +2,8 @@ name: Maven
 
 on: 
   push:
+  #schedule:
+    # - cron: '0 21 * * *'
     branches:
      - master
      #- dev
@@ -24,45 +26,46 @@ jobs:
           #- {name: windows-latest, short: "windows" }
 
     steps:
-     - name: Checkout repo
-       uses: actions/checkout@v2
+    - name: Checkout repo
+      uses: actions/checkout@v2
 
-     - name: Set up JDK 1.8
-       uses: actions/setup-java@v1
-       with:
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
          java-version: 1.8
 
-     - name: Cache maven build
-       uses: actions/cache@v1
-       with:
+    - name: Cache maven build
+      uses: actions/cache@v1
+      with:
          path: ~/.m2/repository
          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
          restore-keys: |
             ${{ runner.os }}-maven-
 
-     - name: Maven Compile
-       run: mvn compile
+    - name: Maven Compile
+      run: mvn compile
 
-     - name: Maven Testing
-       run: mvn test
+    - name: Maven Testing
+      run: mvn test
        # - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=hbstarjason_springboot-k8s-example
      
-     - name: Package
+    - name: Package
        #run: mvn clean package -Dmaven.test.skip=true -s ./settings.xml
        #run: mvn clean package -Dmaven.test.skip=true 
-       run: mvn -B clean package -DskipTests
+      run: mvn -B clean package -DskipTests
 
-     - name: Verify
-       run: mvn -B clean verify -Pintegration-test
+    - name: Verify
+      run: mvn -B clean verify -Pintegration-test
        #mvn clean verify -P sonar -Dsonar.login=XXXX
 
-     - name: Creating artifact
-       run: mkdir staging && cp target/*.jar staging
+    - name: Creating Artifact
+      run: mkdir staging && cp target/*.jar staging
 
-     - name: Upload Artifact
-       uses: actions/upload-artifact@v1
-       with:
-          name: GitHub_Actions-staging
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1
+      with:
+          name: project-jar-staging-${{github.sha}}
+          #name: project-jar-${{matrix.os.short}}-${{github.sha}}
           path: staging
 
      #- name: Show Error Logs
