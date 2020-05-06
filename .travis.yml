@@ -18,7 +18,8 @@ addons:
   sonarcloud:
     organization: "hbstarjason"
     token:
-      secure: $SONAR_TOKEN    # Set in travis-ci.org dashboard
+      #secure: $SONAR_TOKEN    # Set in travis-ci.org dashboard
+      secure: "K8dEU0kvOOsjS7uAiTTZ3D3Hw265TGw5i03YmuaO6JmIDYHzOXIN2oGseFOnXiEveiKIMYdYj+jrgDd1Ak3ZjCGvYOkZl0WzLKMvRogitcBmcT964B6X7Po+QBiqbAzQgSzPKauoai0QXnudKswE0bEXail8IRd8xCbv+A1c6NkFtMH3tlnT6nNDatjZTGEd5C6UaOjgss2MPH2QiyaIARTrLE2QER0Nq4rnYHYEDC3bhC9b+EXh0ooe4+XQwaL9aSi+5E6WI91ve0w7xm27YrDEMmOM317v6M7XhSErxZ6Uw8eptVNwgF+cWvUyM7L4y2rFjoYyJA7FFq+hfqhjHmIuNMug9LsqnQ7P24b+eF1VIGeobq3JTX2So8866zoxllhYSfpurXLIzvZXZCI8/q33uUguqhokOardva7OC1jzaaBz6GBXS4/bk9xQAdz48bNDQSGJOGx3AHlmxBRtbbJsSB4PyWiL1g4Wo2b8hgqXNxr9hJxdf+uetm5Hu+RezGqx7O1OAvnW4wUB19WxaX5yWjrCzK3YKcrrXR2LuHmSIbtoXEqn3if05SL4pnRn9CYHyCsv8cDblsjF7dfPjiwup/05NPetVRjNL0iGBsvJzLLjFKqTIOabwKf76D7alHJzZg7GahhXJGvcn3fHmb0bPwJ+xCfUzoLBzrCZ4Sg="
 
 #services:
 #  - docker
