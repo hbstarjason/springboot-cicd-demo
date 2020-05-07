@@ -34,6 +34,9 @@ jobs:
       with:
          java-version: 1.8
 
+    - name: List env
+      run: env
+
     - name: Cache maven build
       uses: actions/cache@v1
       with:
@@ -74,8 +77,8 @@ jobs:
     - name: Upload gitstats
       uses: actions/upload-artifact@v1
       with: 
-          name: gitstats-${{github.sha}}
-          path: ./gitstats
+          name: gitstats-${GITHUB_REPOSITORY}-${{github.sha}}
+          path: ./gitstats-${GITHUB_REPOSITORY}
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag springboot-cicd-demo:$(date +%s)
