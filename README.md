@@ -1,4 +1,4 @@
-# Spring Boot CI/CD on Kubernetes
+# Spring Boot DevOps on Kubernetes
 
 基于Kubernetes的Spring Boot CI/CD项目实战
 
@@ -11,7 +11,7 @@
 
 - Github（Gitlab）
 
-- Github Actions（Jenkins）
+- Github Actions（Gitlab-CI、Jenkins、Travis-CI ）
 
 - Maven（Gradle）
 
@@ -27,7 +27,7 @@
 
 - Selenium
 
-- Argo-rollouts（Spinnaker）
+- Argo-rollouts（Spinnaker、Istio）
 
 - EFK
 
@@ -37,13 +37,13 @@
 
   
 
-## 主要流程
+## DevOps工具链
 （图）
 
 
 
 
 参考文档：
->待定 1
->待定 2
->待定 3
+>待定 1  
+>待定 2  
+>待定 3     
