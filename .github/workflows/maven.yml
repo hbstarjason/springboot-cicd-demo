@@ -72,13 +72,13 @@ jobs:
           path: staging
 
     - name: Create gitstats
-      run: sudo apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats
+      run: sudo apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats-springboot-cicd-demo
 
     - name: Upload gitstats
       uses: actions/upload-artifact@v1
       with: 
-          name: gitstats-${GITHUB_REPOSITORY}-${{github.sha}}
-          path: ./gitstats-${GITHUB_REPOSITORY}
+          name: gitstats-springboot-cicd-demo-${{github.sha}}
+          path: ./gitstats-springboot-cicd-demo
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag springboot-cicd-demo:$(date +%s)
