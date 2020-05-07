@@ -68,11 +68,19 @@ jobs:
           #name: project-jar-${{matrix.os.short}}-${{github.sha}}
           path: staging
 
+    - name: Create gitstats
+      run: sudo apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats
+
+    - name: Upload gitstats
+      uses: actions/upload-artifact@v1
+      with: 
+          name: gitstats-${{github.sha}}
+          path: ./gitstats
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag springboot-cicd-demo:$(date +%s)
 
-    - name: Create gitstats
-      run: sudo apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats
+
      #- name: Show Error Logs
        #if: failure()
        #run: |
