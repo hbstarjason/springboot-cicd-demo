@@ -3,24 +3,28 @@
 基于Kubernetes的Spring Boot CI/CD项目实战
 
 ## 涉及相关技术栈
-|      |                            Public                            | Local                               | Note                                      |
+|      |                            Public                            | Private                             | Note                                      |
 | ---- | :----------------------------------------------------------: | ----------------------------------- | ----------------------------------------- |
 | 1    |                              /                               | VS code                             |                                           |
 | 2    |                              /                               | Docker                              |                                           |
-| 3    | Azure Kubernetes Service、<br/>Amazon Elastic Kubernetes Service | Kubeadm                             | kubernetes                                |
-| 4    |                            Github                            | Gitlab、Gogs                        | Git                                       |
-| 5    |        Github Actions、<br/>Travis-CI、<br/>CircleCI         | Gitlab-CI、Jenkins                  | Continuous Integration                    |
-| 6    |                              /                               | Maven、Gradle                       |                                           |
-| 7    |                              /                               | Nexus3、Artifactory                 |                                           |
-| 8    |                          Dockerhub                           | Harbor                              |                                           |
-| 9    |                          SonarCloud                          | SonarQube                           |                                           |
-| 10   |                              /                               | Argo-cd、Spinnaker                  | Continuous Delivery                       |
-| 11   |                              /                               | Jmeter                              |                                           |
-| 12   |                              /                               | Selenium                            |                                           |
-| 13   |                              /                               | Argo-rollouts、Spinnaker、Istio     | Continuous Deployment                     |
-| 14   |                              /                               | EFK（Elasticsearch+Fluentd+Kibana） |                                           |
-| 15   |                              /                               | Prometheus                          |                                           |
-| 16   |                              /                               | Skywalking                          | APM（Application Performance Management） |
+| 3    |                              /                               | JIRA                                |                                           |
+| 4    |                              /                               | Confluence                          |                                           |
+| 5    |                              /                               | Ansible、Terraform                  | Infrastructure as Code                    |
+| 6    | Azure Kubernetes Service、<br/>Amazon Elastic Kubernetes Service | Kubeadm                             | kubernetes                                |
+| 7    |                            Github                            | Gitlab、Gogs                        | Git                                       |
+| 8    |        Github Actions、<br/>Travis-CI、<br/>CircleCI         | Gitlab-CI、Jenkins                  | Continuous Integration                    |
+| 9    |                              /                               | Maven、Gradle                       |                                           |
+| 10   |                              /                               | Nexus3、Artifactory                 |                                           |
+| 11   |                          Dockerhub                           | Harbor                              |                                           |
+| 12   |                          SonarCloud                          | SonarQube                           |                                           |
+| 13   |                              /                               | ArgoCD、FluxCD                      | GitOps、Continuous Delivery               |
+| 14   |                              /                               | Jmeter                              |                                           |
+| 15   |                              /                               | Selenium                            |                                           |
+| 16   |                              /                               | ArgoRollouts、Spinnaker             | Continuous Deployment                     |
+| 17   |                                                              | Istio                               | Service Mesh                              |
+| 18   |                              /                               | EFK（Elasticsearch+Fluentd+Kibana） | Logging                                   |
+| 19   |                              /                               | Prometheus && Alertmanager          | Monitoring && Alerting                    |
+| 20   |                              /                               | Skywalking                          | APM（Application Performance Management） |
 
 
 
