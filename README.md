@@ -3,39 +3,26 @@
 基于Kubernetes的Spring Boot CI/CD项目实战
 
 ## 涉及相关技术栈
-- VS code
+|      |                            Public                            | Local                               | Note                                      |
+| ---- | :----------------------------------------------------------: | ----------------------------------- | ----------------------------------------- |
+| 1    |                              /                               | VS code                             |                                           |
+| 2    |                              /                               | Docker                              |                                           |
+| 3    | Azure Kubernetes Service、<br/>Amazon Elastic Kubernetes Service | Kubeadm                             | kubernetes                                |
+| 4    |                            Github                            | Gitlab、Gogs                        | Git                                       |
+| 5    |        Github Actions、<br/>Travis-CI、<br/>CircleCI         | Gitlab-CI、Jenkins                  | Continuous Integration                    |
+| 6    |                              /                               | Maven、Gradle                       |                                           |
+| 7    |                              /                               | Nexus3、Artifactory                 |                                           |
+| 8    |                          Dockerhub                           | Harbor                              |                                           |
+| 9    |                          SonarCloud                          | SonarQube                           |                                           |
+| 10   |                              /                               | Argo-cd、Spinnaker                  | Continuous Delivery                       |
+| 11   |                              /                               | Jmeter                              |                                           |
+| 12   |                              /                               | Selenium                            |                                           |
+| 13   |                              /                               | Argo-rollouts、Spinnaker、Istio     | Continuous Deployment                     |
+| 14   |                              /                               | EFK（Elasticsearch+Fluentd+Kibana） |                                           |
+| 15   |                              /                               | Prometheus                          |                                           |
+| 16   |                              /                               | Skywalking                          | APM（Application Performance Management） |
 
-- Docker
 
-- Kubernetes
-
-- Github（Gitlab）
-
-- Github Actions（Gitlab-CI、Jenkins、Travis-CI ）
-
-- Maven（Gradle）
-
-- Nexus3（Artifactory）
-
-- Dockerhub（Harbor）
-
-- SonarCloud（SonarQube）
-
-- Argo-cd（Spinnaker）
-
-- Jmeter
-
-- Selenium
-
-- Argo-rollouts（Spinnaker、Istio）
-
-- EFK
-
-- Prometheus
-
-- Skywalking
-
-  
 
 ## DevOps工具链
 （图）
