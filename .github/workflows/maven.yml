@@ -70,7 +70,9 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag springboot-cicd-demo:$(date +%s)
-      
+
+    - name: Create gitstats
+      run: apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats
      #- name: Show Error Logs
        #if: failure()
        #run: |
