@@ -19,31 +19,31 @@
           "kind": "Deployment",
           "metadata": {
             "labels": {
-              "app": "k8s-example",
+              "app": "springboot-devops-demo",
               "tier": "backend"
             },
-            "name": "k8s-example",
+            "name": "springboot-devops-demo",
             "namespace": "trigger-demo-dockerhub"
           },
           "spec": {
             "replicas": 1,
             "selector": {
               "matchLabels": {
-                "app": "k8s-example",
+                "app": "springboot-devops-demo",
                 "tier": "backend"
               }
             },
             "template": {
               "metadata": {
                 "labels": {
-                  "app": "k8s-example",
+                  "app": "springboot-devops-demo",
                   "tier": "backend"
                 }
               },
               "spec": {
                 "containers": [
                   {
-                    "image": "hbstarjason/k8s-example:${trigger.tag}",
+                    "image": "hbstarjason/springboot-devops-demo:${trigger.tag}",
                     "livenessProbe": {
                       "httpGet": {
                         "path": "/",
@@ -51,7 +51,7 @@
                       },
                       "initialDelaySeconds": 15
                     },
-                    "name": "k8s-example",
+                    "name": "springboot-devops-demo",
                     "ports": [
                       {
                         "containerPort": 8080
@@ -81,10 +81,10 @@
           "kind": "Service",
           "metadata": {
             "labels": {
-              "app": "k8s-example",
+              "app": "springboot-devops-demo",
               "tier": "backend"
             },
-            "name": "k8s-example",
+            "name": "springboot-devops-demo",
             "namespace": "trigger-demo-dockerhub"
           },
           "spec": {
@@ -95,7 +95,7 @@
               }
             ],
             "selector": {
-              "app": "k8s-example",
+              "app": "springboot-devops-demo",
               "tier": "backend"
             }
           }
@@ -123,7 +123,7 @@
       "master": "my-jenkins-master",
       "organization": "hbstarjason",
       "registry": "index.docker.io",
-      "repository": "hbstarjason/k8s-example",
+      "repository": "hbstarjason/springboot-devops-demo",
       "tag": "",
       "type": "docker"
     }

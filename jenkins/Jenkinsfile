@@ -84,17 +84,17 @@ podTemplate(label: label, cloud: 'kubernetes', serviceAccount: 'admin', containe
             }
 
             stage('docker-build') {
-                sh "docker build . -t ${params.REGISTRY_URL}/${params.DOCKER_USER}/k8s-example:${shortGitCommit}"
-                //sh "docker tag ${params.REGISTRY_URL}/${params.DOCKER_USER}/k8s-example:${shortGitCommit}  ${params.REGISTRY_URL}/${params.DOCKER_USER}/k8s-example:latest"
+                sh "docker build . -t ${params.REGISTRY_URL}/${params.DOCKER_USER}/springboot-devops-demo:${shortGitCommit}"
+                //sh "docker tag ${params.REGISTRY_URL}/${params.DOCKER_USER}/springboot-devops-demo:${shortGitCommit}  ${params.REGISTRY_URL}/${params.DOCKER_USER}/springboot-devops-demo:latest"
             }
 
             stage('docker-push') {
-                sh "docker push ${params.REGISTRY_URL}/${params.DOCKER_USER}/k8s-example:${shortGitCommit}"
-                //sh "docker push ${params.REGISTRY_URL}/${params.DOCKER_USER}/k8s-example:latest"
+                sh "docker push ${params.REGISTRY_URL}/${params.DOCKER_USER}/springboot-devops-demo:${shortGitCommit}"
+                //sh "docker push ${params.REGISTRY_URL}/${params.DOCKER_USER}/springboot-devops-demo:latest"
             }
 
             stage('docker-remove') {
-                sh "docker rmi ${params.REGISTRY_URL}/${params.DOCKER_USER}/k8s-example:${shortGitCommit}"
+                sh "docker rmi ${params.REGISTRY_URL}/${params.DOCKER_USER}/springboot-devops-demo:${shortGitCommit}"
             }
 
         }
@@ -102,12 +102,12 @@ podTemplate(label: label, cloud: 'kubernetes', serviceAccount: 'admin', containe
 
         container('kubectl') {
             stage('k8s deploy') {
-                sh "sed -i \"s/hbstarjason\\/k8s-example/${params.REGISTRY_URL}\\/${params.DOCKER_USER}\\/k8s-example:${shortGitCommit}/g\" k8s-example.yaml"
-                //sh "kubectl --kubeconfig=/root/.kube/config apply -f k8s-example.yaml"
+                sh "sed -i \"s/hbstarjason\\/springboot-devops-demo/${params.REGISTRY_URL}\\/${params.DOCKER_USER}\\/springboot-devops-demo:${shortGitCommit}/g\" springboot-devops-demo.yaml"
+                //sh "kubectl --kubeconfig=/root/.kube/config apply -f springboot-devops-demo.yaml"
                 //sh "kubectl  create -f jenkins/admin-rbac.yaml"
-                //sh "kubectl get ns |grep -w k8s-example || kubectl  create ns k8s-example"
-                //sh "kubectl  apply -f k8s-example.yaml -n k8s-example"
-                //kubectl get svc k8s-example -n k8s-example -o yaml |sed 's/ClusterIP/LoadBalancer/' |kubectl replace -f -
+                //sh "kubectl get ns |grep -w springboot-devops-demo || kubectl  create ns springboot-devops-demo"
+                //sh "kubectl  apply -f springboot-devops-demo.yaml -n springboot-devops-demo"
+                //kubectl get svc springboot-devops-demo -n springboot-devops-demo -o yaml |sed 's/ClusterIP/LoadBalancer/' |kubectl replace -f -
             }
         }
         
@@ -115,8 +115,8 @@ podTemplate(label: label, cloud: 'kubernetes', serviceAccount: 'admin', containe
         container('helm') {
             stage('helm deploy') {
                 sh "helm version"
-                //sh "sed -i \"s/lusyoe\\/k8s-example/${params.REGISTRY_URL}\\/lusyoe\\/k8s-example:${shortGitCommit}/g\" charts/values.yaml"
-                //sh "helm upgrade --install k8s-example charts/"
+                //sh "sed -i \"s/lusyoe\\/springboot-devops-demo/${params.REGISTRY_URL}\\/lusyoe\\/springboot-devops-demo:${shortGitCommit}/g\" charts/values.yaml"
+                //sh "helm upgrade --install springboot-devops-demo charts/"
             }
         }
         container('jnlp') {    

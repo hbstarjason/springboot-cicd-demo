@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: lusyoe/k8s-example
+  repository: hbstarjason/springboot-devops-demo
   pullPolicy: IfNotPresent
 
 service:
@@ -19,7 +19,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - k8s-example.com
+    - springboot-devops-demo.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

@@ -9,6 +9,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String sayHello() {
-        return "Hello, zhang!";
+        return "Hello, springboot-devops-demo!";
     }
 }

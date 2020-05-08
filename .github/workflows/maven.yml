@@ -1,4 +1,4 @@
-name: Maven
+name: Units & Integrations
 
 on: 
   push:
@@ -14,7 +14,7 @@ on:
 
 jobs:
   maven:
-    name: Units & Integrations
+    #name: Units & Integrations
     runs-on: ubuntu-latest
     #runs-on: ${{ matrix.os.name }}
     #strategy:
@@ -53,8 +53,7 @@ jobs:
        # - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=hbstarjason_springboot-k8s-example
      
     - name: Package
-       #run: mvn clean package -Dmaven.test.skip=true -s ./settings.xml
-       #run: mvn clean package -Dmaven.test.skip=true 
+       #run: mvn clean package -Dmaven.test.skip=true -s ./settings.xml  # 使用aliyun maven源
       run: mvn -B clean package -DskipTests
 
     - name: Verify
@@ -67,21 +66,21 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:
-          name: project-jar-staging-${{github.sha}}
-          #name: project-jar-${{matrix.os.short}}-${{github.sha}}
+          name: springboot-devops-demo-jar-staging-${{github.sha}}
+          #name: springboot-devops-demo-jar-${{matrix.os.short}}-${{github.sha}}
           path: staging
 
     - name: Create gitstats
-      run: sudo apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats-springboot-cicd-demo
+      run: sudo apt-get install gitstats  gnuplot  -y &&  gitstats . ./gitstats-springboot-devops-demo
 
     - name: Upload gitstats
       uses: actions/upload-artifact@v1
       with: 
-          name: gitstats-springboot-cicd-demo-${{github.sha}}
-          path: ./gitstats-springboot-cicd-demo
+          name: gitstats-springboot-devops-demo-${{github.sha}}
+          path: ./gitstats-springboot-devops-demo
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag springboot-cicd-demo:$(date +%s)
+      run: docker build . --file Dockerfile --tag hbstarjason/springboot-devops-demo:$(date +%s)
 
 
      #- name: Show Error Logs

@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: k8s-example-gateway
+  name: springboot-devops-demo
 spec:
   selector:
     istio: ingressgateway
@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "k8s-example.lusyoe.com"
+    - "springboot-devops-demo.hbstarjason.com"

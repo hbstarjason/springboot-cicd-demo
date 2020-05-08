@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-example
+  name: springboot-devops-demo
   labels:
-    app: k8s-example
+    app: springboot-devops-demo
     tier: backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: k8s-example
+      app: springboot-devops-demo
       tier: backend
   template:
     metadata:
       labels:
-        app: k8s-example
+        app: springboot-devops-demo
         tier: backend
     spec:
       containers:
-      - name: k8s-example
-        image: hbstarjason/k8s-example
+      - name: springboot-devops-demo
+        image: hbstarjason/springboot-devops-demo
         resources:
           requests:
             cpu: 100m
@@ -41,13 +41,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: k8s-example
+  name: springboot-devops-demo
   labels:
-    app: k8s-example
+    app: springboot-devops-demo
     tier: backend
 spec:
   selector:
-    app: k8s-example
+    app: springboot-devops-demo
     tier: backend
   ports:
   - port: 8080
@@ -57,14 +57,14 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: k8s-example
+  name: springboot-devops-demo
 spec:
   rules:
-  - host: k8s-example.com
+  - host: springboot-devops-demo.com
     http:
       paths:
       - backend:
-          serviceName: k8s-example
+          serviceName: springboot-devops-demo
           servicePort: k8s-backend
 
 
